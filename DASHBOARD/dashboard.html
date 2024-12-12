@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance & Expense Tracker</title>
+    <link rel="stylesheet" href="./dashboard.css">
+</head>
+<body>
+    <header><div class="buttons">
+        <img src="./images/logo.png" alt="Logo" class="logo">
+        <div><h1>FET</h1>
+        <p>Finance and Expense Tracker</p></div>
+        <button>MANAGE EXPENSES</button>
+        <button>EXPENSE CATEGORY</button>
+        <button>REPORTS</button>
+        <button>PROFILE</button>
+        <button>CONTACT US</button>
+    </div></header>
+    
+    
+    <div class="dashboard">
+        <!-- Main Section -->
+        <div>
+            <div class="card">
+                <div class="metrics">
+                    <div class="metric">
+                        <h3>Total Balance</h3>
+                        <p>$45,732.56</p>
+                    </div>
+                    <div class="metric">
+                        <h3>Monthly Income</h3>
+                        <p>$8,342.00</p>
+                    </div>
+                    <div class="metric">
+                        <h3>Monthly Expenses</h3>
+                        <p>$5,324.00</p>
+                    </div>
+                    <div class="metric">
+                        <h3>Saving Rate</h3>
+                        <p>36%</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="charts">
+                <div class="card chart">
+                    <h3>Expense Trends</h3><br>
+                    <canvas id="expenseChart"></canvas>
+                </div>
+                <div class="card chart">
+                    <h3>Expense Categories</h3><br>
+                    <canvas id="categoryChart"></canvas>
+                </div>
+            </div>
+
+            <div class="transactions card">
+                <h3>Latest Transactions</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="color: #f5f5dc;">Date</th>
+                            <th style="color: #f5f5dc;">Description</th>
+                            <th style="color: #f5f5dc;">Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2024-12-10</td>
+                            <td>
+                                <img src="./images/rent.png" alt="house rent logo" style="height: 25px;">Paid Rent
+                            </td>
+                            <td>$1,200</td>
+                        </tr>
+                        <tr>
+                            <td>2024-12-09</td>
+                            <td>
+                                <img src="./images/grocery.png" alt="Grocery logo" style="height: 25px;">Groceries
+                            </td>
+                            <td>$340</td>
+                        </tr>
+                        <tr>
+                            <td>2024-12-08</td>
+                            <td>
+                                <img src="./images/elec_bill.png" alt="Electricity bill logo" style="height: 25px;">Electricity Bill</td>
+                            <td>$150</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="section">
+                <h3>Activities</h3>
+                <ul class="activities">
+                    <li>
+                        <img src="./images/notification.png" alt="">
+                        Added new expense: $1200 for house rent.
+                    </li>
+                    <li>
+                        <img src="./images/notification.png" alt="">
+                        Created savings goal: $4000
+                    </li>
+                    <li>
+                        <img src="./images/notification.png" alt="">
+                        Reviewed monthly report
+                    </li>
+                </ul>
+            </div>
+    
+            <div class="section">
+                <h3>Contacts</h3>
+                <ul class="contacts">
+                    <li>
+                        <img src="https://via.placeholder.com/30" alt="">
+                        Krati
+                    </li>
+                    <li>
+                        <img src="https://via.placeholder.com/30" alt="">
+                        Shishir
+                    </li>
+                    <li>
+                        <img src="https://via.placeholder.com/30" alt="">
+                        Harshal
+                    </li>
+                </ul>
+            </div>
+    
+            <div class="section">
+                <h3>Site Speed</h3>
+                <div class="site-speed">
+                    <span>Load Time</span>
+                    <div class="speed-bar">
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="footer">
+                &copy; 2024 FET | All Rights Reserved
+            </div>
+        </div>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const expenseCtx = document.getElementById('expenseChart').getContext('2d');
+        const expenseChart = new Chart(expenseCtx, {
+            type: 'line',
+            data: {
+                labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+                datasets: [{
+                    label: 'Expenses',
+                    data: [3200, 2900, 3400, 2800, 3100, 3000],
+                    backgroundColor: 'rgba(13, 110, 253, 0.2)',
+                    borderColor: '#00f50a',
+                    borderWidth: 2,
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: false,
+                    }
+                },
+                scales: {
+                    x: {
+                        grid: {
+                            color: 'rgba(33, 38, 45, 0.2)',
+                        }
+                    },
+                    y: {
+                        grid: {
+                            color: 'rgba(33, 38, 45, 0.2)',
+                        }
+                    }
+                }
+            }
+        });
+
+        const categoryCtx = document.getElementById('categoryChart').getContext('2d');
+        const categoryChart = new Chart(categoryCtx, {
+            type: 'pie',
+            data: {
+                labels: ['Rent', 'Groceries', 'Utilities', 'Entertainment', 'Others'],
+                datasets: [{
+                    data: [1200, 340, 150, 200, 300],
+                    backgroundColor: [
+                        '#A59D84',
+                        '#C1BAA1',
+                        '#D4BDAC',
+                        '#D7D3BF',
+                        '#ECEBDE'
+                    ],
+                    // borderColor: 'rgba(33, 38, 45, 1)',
+                    // borderWidth: 1,
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
