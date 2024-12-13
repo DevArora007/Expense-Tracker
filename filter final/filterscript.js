@@ -4,43 +4,43 @@ let products = {
         productName: "afternoon snack",
         category: "Topwear",
         price: "100",
-        image: "white-tshirt.jpg",
+        image: "afternoon.jpg",
       },
       {
         productName: "bus",
         category: "Bottomwear",
         price: "49",
-        image: "short-skirt.jpg",
+        image: "travel.jpg",
       },
       {
         productName: "sip",
         category: "Watch",
         price: "2500",
-        image: "sporty-smartwatch.jpg",
+        image: "sip2.jpg",
       },
       {
         productName: "samosa",
         category: "Topwear",
         price: "20",
-        image: "knitted-top.jpg",
+        image: "samosa.jpg",
       },
       {
         productName: "movie",
         category: "Jacket",
         price: "200",
-        image: "black-leather-jacket.jpg",
+        image: "movie.jpg",
       },
       {
         productName: "auto",
         category: "Bottomwear",
         price: "89",
-        image: "pink-trousers.jpg",
+        image: "travel.jpg",
       },
       {
         productName: "turf",
         category: "Jacket",
         price: "250",
-        image: "brown-jacket.jpg",
+        image: "turf.jpg",
       },
     ],
   };
@@ -68,7 +68,7 @@ let products = {
     container.appendChild(name);
     //price
     let price = document.createElement("h6");
-    price.innerText = "rs" + i.price;
+    price.innerText = "$ " + i.price;
     container.appendChild(price);
   
     card.appendChild(container);
