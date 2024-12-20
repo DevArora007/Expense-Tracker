@@ -3,29 +3,194 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Finance and Expense Tracker</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>Finance Expense Tracker</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #0e0a0a;
+      color: #e6e6e6;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background-color: #0e0a0a;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.5rem;
+      color: #f5f5dc;
+    }
+    nav a {
+      color: #e6e6e6;
+      text-decoration: none;
+      margin: 0 10px;
+      padding: 8px 12px;
+      border: 1px solid transparent;
+      border-radius: 5px;
+    }
+    nav a:hover {
+      background-color: #00f50a;
+      color: #101d16;
+    }
+    .container {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px;
+    }
+    .left-panel {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      
+      gap: 20px;
+    }
+    .right-panel {
+      flex: 1;
+      margin-left: 20px;
+    }
+    .left-panel, .right-panel {
+  flex: 1; /* Ensure equal width for both panels */
+  margin: 0 10px; /* Add spacing between the panels */
+    }
+
+    .settings {
+      background-color: #1a2e26;
+      padding: 20px;
+      border-radius: 8px;
+    }
+    .settings h2 {
+      margin-top: 0;
+      color: #f5f5dc;
+    }
+    .settings ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    .settings ul li {
+      display: flex;
+      justify-content: space-between;
+      margin: 10px 0;
+      cursor: pointer;
+    }
+    .settings ul li:hover {
+      color: #00f50a;
+    }
+    .toggle-switch {
+      position: relative;
+      width: 40px;
+      height: 20px;
+      background: #ccc;
+      border-radius: 50px;
+      cursor: pointer;
+    }
+    .toggle-switch:before {
+      content: '';
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      background: #fff;
+      border-radius: 50%;
+      top: 1px;
+      left: 1px;
+      transition: 0.3s;
+    }
+    .toggle-switch.active {
+      background: #4caf50;
+    }
+    .toggle-switch.active:before {
+      transform: translateX(20px);
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <img style="width: 7cm; margin-left: 0cm;" src="./landing page1/logo.png"/>
-    <nav>
-      <button class="btn">LOG IN</button>
-      <button class="btn">SIGN UP</button>
-    </nav>
-  </header>
-  <main>
-    <h1><span style="color: #f5f5dc;">Take</span><span style="color: #00f50a;"> Control </span><span style="color: #f5f5dc;">of</span> <span style="color: #f5f5dc;"><br>Every Penny.</span></h1>
-    <button class="cta-btn">What’s Inside?</button>
-  </main>
-  <footer class="footer">
-    <div id="left-foot" style="margin-left: 0; display: inline-block;">
-    <h2 id="foot-head" style="justify-content: left;">CONTACT US</h2>
-    <p id="foot-email" >E-MAIL: fet_official@gmail.com</p></div>
+  <header style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 30px; margin-top: 20px;">
+  <div style="display: flex; align-items: center;">
+    <img src="logo.jpg" alt="Logo" style="width: 40px; height: 40px; margin-right: 10px;">
+    <h1 style="margin: 0;">FET - FINANCE EXPENSE TRACKER</h1>
+  </div>
+  <nav>
+    <a href="#">My Dashboard</a>
+    <a href="#">Add Expense</a>
+    <a href="#">Expense History</a>
+    <a href="#">Contact Us</a>
+  </nav>
+</header>
 
-    <p id="foot-ryt" style="display: inline-block;">&#xA9 2024 FET | All Rights Reserved</p>
-</footer>
-  <script src="./script.js">
+
+  <div class="container">
+    <!-- Left Panel -->
+    <div class="left-panel">
+      <div class="settings">
+        <h2>Account Settings</h2>
+        <ul>
+          <li>Edit Personal Info <span>&gt;</span></li>
+          <li>Link Bank Account <span>&gt;</span></li>
+          <li>Change Password <span>&gt;</span></li>
+          <li>Delete Account <span>&gt;</span></li>
+          <li>
+            Pause Account
+            <div class="toggle-switch" id="pauseToggle"></div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="settings">
+        <h2>Privacy Settings</h2>
+        <ul>
+          <li>Backup Options <span>&gt;</span></li>
+          <li>Third-party Integrations <span>&gt;</span></li>
+          <li>SMS Permissions <span>&gt;</span></li>
+          <li>Cookie Preferences <span>&gt;</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Right Panel -->
+<div class="right-panel">
+  <div class="settings">
+    <!-- User Photo and Name -->
+<div style="display: flex; align-items: center; margin-bottom: 20px;">
+  <img src="https://banner2.cleanpng.com/20180401/dbq/avh33k1xg.webp" alt="User Photo" 
+       style="width: 80px; height: 80px; border-radius: 50%; margin-right: 15px;"/>
+  <h3 style="margin: 0; font-size: 1.5rem; color: #00f50a;">Shashmita Sanyal</h3>
+</div>
+
+
+    <h2>General Settings</h2>
+    <ul>
+      <li>Edit Profile <span>&gt;</span></li>
+      <li>Theme <span>&gt;</span></li>
+      <li>Languages <span>&gt;</span></li>
+      <li>Currency Settings <span>&gt;</span></li>
+      <li>Timeout Settings <span>&gt;</span></li>
+      <li>Custom Categories <span>&gt;</span></li>
+      <li>Time zone <span>Kolkata</span></li>
+      <li>
+        Push Notifications
+        <div class="toggle-switch active" id="pushToggle"></div>
+      </li>
+      <li>
+        Transaction Alerts
+        <div class="toggle-switch active" id="alertToggle"></div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+  <script>
+    // JavaScript to toggle active state
+    document.querySelectorAll('.toggle-switch').forEach((toggle) => {
+      toggle.addEventListener('click', () => {
+        toggle.classList.toggle('active');
+      });
+    });
   </script>
 </body>
 </html>
